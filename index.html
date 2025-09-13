@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Open on YouTube</title>
+</head>
+<body>
+  <h2>Opening YouTube Channel...</h2>
+  <script>
+    var CHANNEL_ID = "UCbtiwdnuY4Ag9GispP5X41g";
+    var webUrl = "https://www.youtube.com/channel/" + CHANNEL_ID + "?sub_confirmation=1";
+    var iosApp = "youtube://www.youtube.com/channel/" + CHANNEL_ID + "?sub_confirmation=1";
+    var androidIntent = "intent://www.youtube.com/channel/" + CHANNEL_ID + "?sub_confirmation=1#Intent;package=com.google.android.youtube;scheme=https;end";
+
+    var ua = navigator.userAgent || navigator.vendor || window.opera;
+    var isAndroid = /android/i.test(ua);
+    var isIOS = /iPhone|iPad|iPod/i.test(ua);
+
+    if (isAndroid) window.location.href = androidIntent;
+    else if (isIOS) window.location.href = iosApp;
+    else window.location.href = webUrl;
+
+    setTimeout(function(){ window.location.href = webUrl; },1500);
+  </script>
+</body>
+</html>
